@@ -34,10 +34,12 @@ const COINS = [
 ]
 
 function PriceTicker({ prices }: { prices: Prices }) {
-  const items = COINS.map(c => ({
-    ...c,
-    data: c.fixed ?? prices[c.id] ?? INITIAL_PRICES[c.id] ?? { usd: 0, usd_24h_change: 0 },
-  }))
+  const items = COINS.map(c => {
+    const live = prices[c.id]
+    const liveValid = !!live && typeof live.usd === 'number' && live.usd > 0
+    const data = c.fixed ?? (liveValid ? live : (INITIAL_PRICES[c.id] ?? { usd: 0, usd_24h_change: 0 }))
+    return { ...c, data }
+  })
 
   const renderItem = (item: (typeof items)[0], i: number) => {
     const usd = typeof item.data?.usd === 'number' ? item.data.usd : 0
