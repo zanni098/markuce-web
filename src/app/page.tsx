@@ -40,7 +40,8 @@ function PriceTicker({ prices }: { prices: Prices }) {
   }))
 
   const renderItem = (item: (typeof items)[0], i: number) => {
-    const { usd, usd_24h_change: change } = item.data
+    const usd = typeof item.data?.usd === 'number' ? item.data.usd : 0
+    const change = typeof item.data?.usd_24h_change === 'number' ? item.data.usd_24h_change : 0
     const pos = change >= 0
     return (
       <span key={`${item.sym}-${i}`} className="inline-flex items-center gap-2.5 mx-8 whitespace-nowrap select-none">
