@@ -1,0 +1,1 @@
+self.__REACT_LOADABLE_MANIFEST='{"app/page.tsx -> @/components/NetworkCanvas":{"id":6057,"files":["static/chunks/57.f5819c37a258c599.js"]}}';
