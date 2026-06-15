@@ -62,7 +62,7 @@ export default function AboutPage() {
               gap: 10,
               padding: '12px 24px',
               background: 'var(--surface)',
-              border: '1px solid rgba(0,201,167,0.25)',
+              border: '1px solid rgba(14,122,95,0.25)',
               borderRadius: 'var(--radius-lg)',
               textDecoration: 'none',
               transition: 'all 0.2s',
@@ -103,10 +103,10 @@ export default function AboutPage() {
                     borderRadius: '50%',
                     background: 'var(--primary)',
                     border: '2px solid var(--base)',
-                    boxShadow: '0 0 12px rgba(88,101,242,0.5)',
+                    boxShadow: '0 0 12px rgba(14,122,95,0.5)',
                   }} />
                   <span style={{ fontFamily: 'var(--font-mono)', fontSize: 12, color: 'var(--primary)', marginBottom: 6, display: 'block' }}>{year}</span>
-                  <h3 style={{ fontFamily: 'Syne, sans-serif', fontSize: 20, marginBottom: 10 }}>{label}</h3>
+                  <h3 style={{ fontFamily: 'var(--font-display), sans-serif', fontSize: 20, marginBottom: 10 }}>{label}</h3>
                   <p style={{ fontSize: 15, color: 'var(--text-sub)', lineHeight: 1.75 }}>{body}</p>
                 </div>
               ))}
@@ -127,7 +127,7 @@ export default function AboutPage() {
                 <div style={{ width: 44, height: 44, borderRadius: 12, background: `${color}18`, border: `1px solid ${color}33`, display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 16 }}>
                   <Icon size={20} color={color} />
                 </div>
-                <h3 style={{ fontSize: 18, fontFamily: 'Syne, sans-serif', marginBottom: 10 }}>{title}</h3>
+                <h3 style={{ fontSize: 18, fontFamily: 'var(--font-display), sans-serif', marginBottom: 10 }}>{title}</h3>
                 <p style={{ fontSize: 14, color: 'var(--text-sub)', lineHeight: 1.7 }}>{body}</p>
               </div>
             ))}
@@ -142,7 +142,7 @@ export default function AboutPage() {
             className="reveal"
             style={{
               background: 'var(--surface)',
-              border: '1px solid rgba(0,201,167,0.2)',
+              border: '1px solid rgba(14,122,95,0.2)',
               borderRadius: 'var(--radius-xl)',
               padding: '52px 56px',
               textAlign: 'center',
@@ -150,7 +150,7 @@ export default function AboutPage() {
               overflow: 'hidden',
             }}
           >
-            <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse at 50% 100%, rgba(0,201,167,0.06) 0%, transparent 70%)', pointerEvents: 'none' }} />
+            <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse at 50% 100%, rgba(14,122,95,0.06) 0%, transparent 70%)', pointerEvents: 'none' }} />
             <div style={{ position: 'relative', zIndex: 2 }}>
               <div style={{ width: 56, height: 56, borderRadius: 16, background: 'linear-gradient(135deg, var(--primary), var(--accent))', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px' }}>
                 <Zap size={26} color="white" fill="white" />
@@ -184,7 +184,7 @@ export default function AboutPage() {
           <p style={{ fontSize: 16, color: 'var(--text-sub)', marginBottom: 32 }}>
             Be part of the platform that opens payments to the world.
           </p>
-          <Link href="https://app.markuce.com/register" className="btn btn-primary" style={{ fontSize: 16, padding: '14px 36px' }}>
+          <Link href="https://markuce-app.vercel.app/register" className="btn btn-primary" style={{ fontSize: 16, padding: '14px 36px' }}>
             Start for free <ArrowRight size={16} />
           </Link>
         </div>

@@ -2,7 +2,8 @@
 import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Menu, X, Zap } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
+import { APP_URL, Logo } from './brand'
 
 const links = [
   { href: '/how-it-works', label: 'How it works' },
@@ -12,17 +13,17 @@ const links = [
 ]
 
 export default function Nav() {
-  const [scrolled,  setScrolled]  = useState(false)
+  const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
+  const [hidden, setHidden] = useState(false)
   const pathname = usePathname()
   const lastY = useRef(0)
-  const [hidden, setHidden] = useState(false)
 
   useEffect(() => {
     const onScroll = () => {
       const y = window.scrollY
-      setScrolled(y > 20)
-      setHidden(y > lastY.current && y > 100)
+      setScrolled(y > 16)
+      setHidden(y > lastY.current && y > 120)
       lastY.current = y
     }
     window.addEventListener('scroll', onScroll, { passive: true })
@@ -36,96 +37,79 @@ export default function Nav() {
       <header
         style={{
           transform: hidden && !mobileOpen ? 'translateY(-100%)' : 'translateY(0)',
-          transition: 'transform 0.3s cubic-bezier(0.4,0,0.2,1), background 0.3s, border-color 0.3s',
+          transition: 'transform .3s cubic-bezier(.4,0,.2,1), background .3s, border-color .3s, box-shadow .3s',
+          borderBottom: scrolled ? '1px solid var(--border)' : '1px solid transparent',
+          boxShadow: scrolled ? 'var(--shadow-sm)' : 'none',
         }}
-        className={`fixed top-0 left-0 right-0 z-50 ${
-          scrolled
-            ? 'glass border-b'
-            : 'bg-transparent border-b border-transparent'
-        }`}
+        className={`fixed top-0 left-0 right-0 z-50 ${scrolled ? 'glass' : 'bg-transparent'}`}
       >
-        <div className="container-site flex items-center justify-between h-16">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-2.5 group">
-            <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-              <Zap className="w-4 h-4 text-white" fill="white" />
-            </div>
-            <span
-              className="font-display font-700 text-lg tracking-tight"
-              style={{
-                fontFamily: 'Syne, sans-serif',
-                fontWeight: 700,
-                background: 'linear-gradient(135deg, #E4EBFF, #A5B4FC)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-              }}
-            >
-              Markuce
-            </span>
-          </Link>
+        <div className="container-site flex items-center justify-between" style={{ height: 68 }}>
+          <Logo />
 
-          {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-1">
-            {links.map(l => (
-              <Link
-                key={l.href}
-                href={l.href}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
-                  pathname === l.href
-                    ? 'text-white bg-white/[0.06]'
-                    : 'text-sub hover:text-text hover:bg-white/[0.04]'
-                }`}
-                style={{ color: pathname === l.href ? undefined : 'var(--text-sub)' }}
-              >
-                {l.label}
-              </Link>
-            ))}
+          <nav className="hidden md:flex items-center" style={{ gap: 2 }}>
+            {links.map(l => {
+              const active = pathname === l.href
+              return (
+                <Link
+                  key={l.href}
+                  href={l.href}
+                  style={{
+                    padding: '8px 14px',
+                    borderRadius: 8,
+                    fontSize: 14.5,
+                    fontWeight: 500,
+                    letterSpacing: '-0.01em',
+                    color: active ? 'var(--ink)' : 'var(--text-sub)',
+                    background: active ? 'rgba(21,20,15,0.05)' : 'transparent',
+                    transition: 'color .15s, background .15s',
+                  }}
+                  className="nav-link"
+                >
+                  {l.label}
+                </Link>
+              )
+            })}
           </nav>
 
-          {/* Desktop CTA */}
-          <div className="hidden md:flex items-center gap-3">
-            <Link href="https://app.markuce.com/login" className="btn btn-secondary" style={{ padding: '8px 18px', fontSize: '14px' }}>
+          <div className="hidden md:flex items-center" style={{ gap: 10 }}>
+            <Link href={`${APP_URL}/login`} className="btn btn-secondary" style={{ padding: '8px 18px', fontSize: 14 }}>
               Sign in
             </Link>
-            <Link href="https://app.markuce.com/register" className="btn btn-primary" style={{ padding: '8px 18px', fontSize: '14px' }}>
-              Start free →
+            <Link href={`${APP_URL}/register`} className="btn btn-primary" style={{ padding: '8px 18px', fontSize: 14 }}>
+              Start free
             </Link>
           </div>
 
-          {/* Mobile menu button */}
           <button
             onClick={() => setMobileOpen(v => !v)}
-            className="md:hidden p-2 rounded-lg text-sub hover:text-text hover:bg-white/[0.06] transition-all"
+            aria-label="Menu"
+            className="md:hidden"
+            style={{ padding: 8, borderRadius: 8, color: 'var(--ink)', background: 'transparent', border: 'none', cursor: 'pointer' }}
           >
-            {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            {mobileOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
       </header>
 
       {/* Mobile menu */}
       <div
-        className={`fixed inset-0 z-40 flex flex-col glass transition-all duration-300 md:hidden ${
-          mobileOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
-        }`}
-        style={{ paddingTop: '64px' }}
+        className={`fixed inset-0 z-40 flex flex-col glass md:hidden ${mobileOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
+        style={{ paddingTop: 68, transition: 'opacity .25s' }}
       >
-        <nav className="container-site flex flex-col gap-1 pt-6">
+        <nav className="container-site flex flex-col pt-6" style={{ gap: 4 }}>
           {links.map(l => (
             <Link
               key={l.href}
               href={l.href}
-              className="flex items-center px-4 py-3 rounded-lg text-sm font-medium transition-all text-sub hover:text-text hover:bg-white/[0.06]"
+              style={{ padding: '14px 8px', borderRadius: 10, fontSize: 16, fontWeight: 500, color: 'var(--ink)', borderBottom: '1px solid var(--border)' }}
             >
               {l.label}
             </Link>
           ))}
-          <div className="divider my-4" />
-          <Link
-            href="https://app.markuce.com/register"
-            className="btn btn-primary w-full justify-center mt-2"
-          >
-            Start free →
-          </Link>
+          <div className="flex flex-col gap-3 mt-6">
+            <Link href={`${APP_URL}/login`} className="btn btn-secondary w-full justify-center">Sign in</Link>
+            <Link href={`${APP_URL}/register`} className="btn btn-primary w-full justify-center">Start free</Link>
+          </div>
         </nav>
       </div>
     </>

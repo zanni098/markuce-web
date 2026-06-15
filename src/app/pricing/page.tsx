@@ -74,7 +74,7 @@ export default function PricingPage() {
             className="reveal glow-primary"
             style={{
               background: 'var(--surface)',
-              border: '1px solid rgba(88,101,242,0.35)',
+              border: '1px solid rgba(14,122,95,0.35)',
               borderRadius: 'var(--radius-xl)',
               overflow: 'hidden',
             }}
@@ -86,18 +86,17 @@ export default function PricingPage() {
                   <div style={{ marginBottom: 24 }}>
                     <span
                       style={{
-                        fontFamily: 'Syne, sans-serif',
+                        fontFamily: 'var(--font-display), sans-serif',
                         fontSize: 80,
-                        fontWeight: 800,
+                        fontWeight: 700,
                         lineHeight: 1,
-                        background: 'linear-gradient(135deg, var(--text), var(--primary-bright))',
-                        WebkitBackgroundClip: 'text',
-                        WebkitTextFillColor: 'transparent',
+                        letterSpacing: '-0.05em',
+                        color: 'var(--ink)',
                       }}
                     >
                       3.4%
                     </span>
-                    <span style={{ fontFamily: 'Syne, sans-serif', fontSize: 28, fontWeight: 700, color: 'var(--text-sub)', marginLeft: 8 }}>
+                    <span style={{ fontFamily: 'var(--font-display), sans-serif', fontSize: 28, fontWeight: 700, color: 'var(--text-sub)', marginLeft: 8 }}>
                       + $0.30
                     </span>
                   </div>
@@ -105,7 +104,7 @@ export default function PricingPage() {
                     Per successful transaction. All-inclusive — card processing, oracle feeds, webhooks, payouts.
                     No monthly plan. No minimums. No surprises.
                   </p>
-                  <Link href="https://app.markuce.com/register" className="btn btn-primary" style={{ width: '100%', justifyContent: 'center', padding: '15px 0' }}>
+                  <Link href="https://markuce-app.vercel.app/register" className="btn btn-primary" style={{ width: '100%', justifyContent: 'center', padding: '15px 0' }}>
                     Start for free <ArrowRight size={16} />
                   </Link>
                   <p style={{ fontSize: 12, color: 'var(--text-muted)', textAlign: 'center', marginTop: 10 }}>

@@ -119,7 +119,7 @@ export default function HowItWorksPage() {
                     <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 24 }}>
                       <span
                         style={{
-                          fontFamily: 'Syne, sans-serif',
+                          fontFamily: 'var(--font-display), sans-serif',
                           fontSize: 72,
                           fontWeight: 800,
                           lineHeight: 1,
@@ -134,7 +134,7 @@ export default function HowItWorksPage() {
                         <Icon size={22} color={color} />
                       </div>
                     </div>
-                    <h2 style={{ fontSize: 28, marginBottom: 16, fontFamily: 'Syne, sans-serif' }}>{title}</h2>
+                    <h2 style={{ fontSize: 28, marginBottom: 16, fontFamily: 'var(--font-display), sans-serif' }}>{title}</h2>
                     <p style={{ fontSize: 16, color: 'var(--text-sub)', lineHeight: 1.75, marginBottom: 24 }}>{body}</p>
                     <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
                       {detail.map(d => (
@@ -167,7 +167,7 @@ export default function HowItWorksPage() {
                       <div style={{ width: 64, height: 64, borderRadius: 18, background: colorDim, border: `1px solid ${color}33`, display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px' }}>
                         <Icon size={30} color={color} />
                       </div>
-                      <p style={{ fontFamily: 'Syne, sans-serif', fontWeight: 700, fontSize: 20, color: 'var(--text)' }}>Step {n}</p>
+                      <p style={{ fontFamily: 'var(--font-display), sans-serif', fontWeight: 700, fontSize: 20, color: 'var(--text)' }}>Step {n}</p>
                       <p style={{ fontSize: 14, color: 'var(--text-sub)', marginTop: 6 }}>{title}</p>
                     </div>
                   </div>
@@ -195,7 +195,7 @@ export default function HowItWorksPage() {
             <div className="card reveal" style={{ transitionDelay: '0.1s' }}>
               <div style={{ display: 'flex', gap: 12, alignItems: 'center', marginBottom: 20 }}>
                 <CreditCard size={20} color="var(--primary)" />
-                <h3 style={{ fontFamily: 'Syne, sans-serif', fontSize: 20 }}>Card payments</h3>
+                <h3 style={{ fontFamily: 'var(--font-display), sans-serif', fontSize: 20 }}>Card payments</h3>
               </div>
               <p style={{ fontSize: 14, color: 'var(--text-sub)', lineHeight: 1.7, marginBottom: 20 }}>
                 Stripe Elements embedded directly in the checkout. Accepts Visa, Mastercard, Amex, and most local debit cards globally. PCI compliant. 3D Secure where required.
@@ -209,10 +209,10 @@ export default function HowItWorksPage() {
                 ))}
               </div>
             </div>
-            <div className="card reveal" style={{ transitionDelay: '0.2s', borderColor: 'rgba(0,201,167,0.2)' }}>
+            <div className="card reveal" style={{ transitionDelay: '0.2s', borderColor: 'rgba(14,122,95,0.2)' }}>
               <div style={{ display: 'flex', gap: 12, alignItems: 'center', marginBottom: 20 }}>
                 <Bitcoin size={20} color="var(--accent)" />
-                <h3 style={{ fontFamily: 'Syne, sans-serif', fontSize: 20 }}>Crypto payments</h3>
+                <h3 style={{ fontFamily: 'var(--font-display), sans-serif', fontSize: 20 }}>Crypto payments</h3>
               </div>
               <p style={{ fontSize: 14, color: 'var(--text-sub)', lineHeight: 1.7, marginBottom: 20 }}>
                 ETH on Ethereum, USDC on Solana, MATIC on Polygon. Prices fetched from Chainlink on-chain oracles — tamper-proof. ±2% tolerance handles price movement during settlement.
@@ -237,7 +237,7 @@ export default function HowItWorksPage() {
           <p style={{ fontSize: 16, color: 'var(--text-sub)', marginBottom: 32 }}>
             Sign up in 2 minutes. Your first checkout link is 5 minutes after that.
           </p>
-          <Link href="https://app.markuce.com/register" className="btn btn-primary" style={{ fontSize: 16, padding: '14px 36px' }}>
+          <Link href="https://markuce-app.vercel.app/register" className="btn btn-primary" style={{ fontSize: 16, padding: '14px 36px' }}>
             Create free account <ArrowRight size={16} />
           </Link>
         </div>

@@ -1,105 +1,82 @@
 import Link from 'next/link'
-import { Zap, ExternalLink, Github, Twitter } from 'lucide-react'
+import { ArrowUpRight, Github, Twitter } from 'lucide-react'
+import { APP_URL, Logo } from './brand'
 
 const cols = [
   {
     title: 'Product',
     links: [
-      { label: 'How it works',   href: '/how-it-works' },
-      { label: 'Pricing',        href: '/pricing' },
-      { label: 'Dashboard',      href: 'https://app.markuce.com/dashboard' },
-      { label: 'Changelog',      href: '#' },
+      { label: 'How it works', href: '/how-it-works' },
+      { label: 'Pricing',      href: '/pricing' },
+      { label: 'Dashboard',    href: `${APP_URL}/dashboard` },
+      { label: 'Changelog',    href: '#' },
     ],
   },
   {
     title: 'Developers',
     links: [
-      { label: 'Documentation',  href: '/developers' },
-      { label: 'API Reference',  href: '/developers#api' },
-      { label: 'Webhooks',       href: '/developers#webhooks' },
-      { label: 'SDKs',           href: '/developers#sdks' },
+      { label: 'Documentation', href: '/developers' },
+      { label: 'API Reference', href: '/developers#api' },
+      { label: 'Webhooks',      href: '/developers#webhooks' },
+      { label: 'Status',        href: '#' },
     ],
   },
   {
     title: 'Company',
     links: [
-      { label: 'About',          href: '/about' },
-      { label: 'Symbiothus ↗',  href: 'https://symbiothus.vercel.app/', external: true },
-      { label: 'Privacy Policy', href: '#' },
-      { label: 'Terms of Use',   href: '#' },
+      { label: 'About',         href: '/about' },
+      { label: 'Symbiothus',    href: 'https://symbiothus.vercel.app/', external: true },
+      { label: 'Privacy',       href: '#' },
+      { label: 'Terms',         href: '#' },
     ],
   },
 ]
 
 export default function Footer() {
   return (
-    <footer
-      style={{ borderTop: '1px solid var(--border)' }}
-      className="bg-base"
-    >
-      <div className="container-site py-16">
-        {/* Top row */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-12 mb-16">
+    <footer className="section-ink" style={{ borderTop: '1px solid var(--border)' }}>
+      <div className="container-site" style={{ paddingTop: 80, paddingBottom: 40 }}>
+        <div className="grid grid-cols-2 md:grid-cols-4" style={{ gap: 48, marginBottom: 64 }}>
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
-            <Link href="/" className="inline-flex items-center gap-2.5 mb-4">
-              <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-                <Zap className="w-4 h-4 text-white" fill="white" />
-              </div>
-              <span
-                style={{
-                  fontFamily: 'Syne, sans-serif',
-                  fontWeight: 700,
-                  fontSize: '17px',
-                  background: 'linear-gradient(135deg, #E4EBFF, #A5B4FC)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                }}
-              >
-                Markuce
-              </span>
-            </Link>
-            <p className="text-sm leading-relaxed mb-6" style={{ color: 'var(--text-sub)' }}>
+            <Logo onDark />
+            <p style={{ fontSize: 14, lineHeight: 1.6, marginTop: 18, marginBottom: 22, color: 'var(--on-ink-sub)', maxWidth: 260 }}>
               The global Merchant of Record for the countries traditional payment platforms forgot.
             </p>
-            {/* Symbiothus badge */}
             <Link
               href="https://symbiothus.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-3 py-2 rounded-lg text-xs font-medium transition-all hover:bg-white/[0.06]"
               style={{
-                background: 'var(--surface)',
-                border: '1px solid var(--border)',
-                color: 'var(--text-sub)',
+                display: 'inline-flex', alignItems: 'center', gap: 8,
+                padding: '8px 14px', borderRadius: 10, fontSize: 12.5, fontWeight: 500,
+                color: 'var(--on-ink)', background: 'rgba(244,242,236,0.06)',
+                border: '1px solid rgba(244,242,236,0.16)', textDecoration: 'none',
               }}
             >
-              <span className="w-2 h-2 rounded-full" style={{ background: 'var(--accent)' }} />
+              <span style={{ width: 7, height: 7, borderRadius: '50%', background: 'var(--accent-bright)' }} />
               A Symbiothus product
-              <ExternalLink className="w-3 h-3" />
+              <ArrowUpRight size={13} />
             </Link>
           </div>
 
-          {/* Nav columns */}
           {cols.map(col => (
             <div key={col.title}>
-              <p
-                className="text-xs font-semibold uppercase tracking-widest mb-4"
-                style={{ color: 'var(--text-muted)' }}
-              >
+              <p style={{ fontSize: 11.5, fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--on-ink-sub)', marginBottom: 18 }}>
                 {col.title}
               </p>
-              <ul className="space-y-3">
+              <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 12 }}>
                 {col.links.map(l => (
                   <li key={l.label}>
                     <Link
                       href={l.href}
                       target={l.external ? '_blank' : undefined}
                       rel={l.external ? 'noopener noreferrer' : undefined}
-                      className="text-sm transition-colors hover:text-text flex items-center gap-1"
-                      style={{ color: 'var(--text-sub)' }}
+                      style={{ fontSize: 14, color: 'var(--on-ink-sub)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 4, transition: 'color .15s' }}
+                      className="footer-link"
                     >
                       {l.label}
+                      {l.external && <ArrowUpRight size={12} />}
                     </Link>
                   </li>
                 ))}
@@ -108,47 +85,26 @@ export default function Footer() {
           ))}
         </div>
 
-        {/* Bottom row */}
         <div
-          className="flex flex-col md:flex-row items-center justify-between gap-4 pt-8"
-          style={{ borderTop: '1px solid var(--border)' }}
+          className="flex flex-col md:flex-row items-center justify-between"
+          style={{ gap: 16, paddingTop: 28, borderTop: '1px solid rgba(244,242,236,0.12)' }}
         >
-          <p className="text-xs" style={{ color: 'var(--text-muted)' }}>
-            © {new Date().getFullYear()} Markuce · All rights reserved ·{' '}
-            <span style={{ color: 'var(--text-sub)' }}>Built by</span>{' '}
-            <Link
-              href="https://symbiothus.vercel.app/"
-              target="_blank"
-              className="hover:text-text transition-colors"
-              style={{ color: 'var(--accent)' }}
-            >
+          <p style={{ fontSize: 12.5, color: 'var(--on-ink-sub)' }}>
+            © {new Date().getFullYear()} Markuce · Built by{' '}
+            <Link href="https://symbiothus.vercel.app/" target="_blank" style={{ color: 'var(--accent-bright)', textDecoration: 'none' }}>
               Symbiothus
             </Link>
           </p>
-
-          <div className="flex items-center gap-4">
-            <Link
-              href="https://github.com/"
-              target="_blank"
-              className="p-2 rounded-lg transition-all hover:bg-white/[0.06]"
-              style={{ color: 'var(--text-muted)' }}
-            >
-              <Github className="w-4 h-4" />
+          <div className="flex items-center" style={{ gap: 8 }}>
+            <Link href="https://github.com/" target="_blank" aria-label="GitHub" style={{ padding: 8, borderRadius: 8, color: 'var(--on-ink-sub)' }}>
+              <Github size={16} />
             </Link>
-            <Link
-              href="https://twitter.com/"
-              target="_blank"
-              className="p-2 rounded-lg transition-all hover:bg-white/[0.06]"
-              style={{ color: 'var(--text-muted)' }}
-            >
-              <Twitter className="w-4 h-4" />
+            <Link href="https://twitter.com/" target="_blank" aria-label="Twitter" style={{ padding: 8, borderRadius: 8, color: 'var(--on-ink-sub)' }}>
+              <Twitter size={16} />
             </Link>
-            <span
-              className="badge badge-live text-xs"
-              style={{ fontSize: '11px', padding: '4px 10px' }}
-            >
+            <span className="badge badge-live" style={{ fontSize: 11.5, marginLeft: 4 }}>
               <span className="live-dot" />
-              System operational
+              All systems operational
             </span>
           </div>
         </div>

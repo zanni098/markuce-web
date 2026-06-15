@@ -79,7 +79,7 @@ export default function DevelopersPage() {
           <div style={{ display: 'grid', gap: 48, alignItems: 'center' }} className="md:grid-cols-[1fr_1fr]">
             <div>
               <span className="badge badge-primary" style={{ marginBottom: 20, display: 'inline-flex' }}>Developers</span>
-              <h1 style={{ marginBottom: 20, fontFamily: 'Syne, sans-serif' }}>
+              <h1 style={{ marginBottom: 20, fontFamily: 'var(--font-display), sans-serif' }}>
                 API-first.<br />
                 <span className="gradient-text">No surprises.</span>
               </h1>

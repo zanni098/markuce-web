@@ -1,13 +1,21 @@
 import type { Metadata } from 'next'
-import { Syne, Inter, JetBrains_Mono } from 'next/font/google'
+import { Schibsted_Grotesk, Instrument_Serif, Inter, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
 
-const syne = Syne({
+const display = Schibsted_Grotesk({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700', '800'],
-  variable: '--font-syne',
+  weight: ['400', '500', '600', '700', '800', '900'],
+  variable: '--font-display',
+  display: 'swap',
+})
+
+const serif = Instrument_Serif({
+  subsets: ['latin'],
+  weight: ['400'],
+  style: ['normal', 'italic'],
+  variable: '--font-serif',
   display: 'swap',
 })
 
@@ -54,10 +62,10 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${syne.variable} ${inter.variable} ${mono.variable} noise-overlay`}
+      className={`${display.variable} ${serif.variable} ${inter.variable} ${mono.variable}`}
       suppressHydrationWarning
     >
-      <body className="antialiased" style={{ background: 'var(--void)' }}>
+      <body className="antialiased" style={{ background: 'var(--bg)' }}>
         <Nav />
         <main>{children}</main>
         <Footer />
