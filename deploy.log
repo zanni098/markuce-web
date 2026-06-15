@@ -1,18 +1,19 @@
 Retrieving project…
 Deploying zanni098s-projects/markuce-web
-Uploading [--------------------] (0.0B/46.3KB)
-Uploading [======--------------] (16.0KB/46.3KB)
-Uploading [=============-------] (32.0KB/46.3KB)
-Uploading [====================] (46.3KB/46.3KB)
-Inspect: https://vercel.com/zanni098s-projects/markuce-web/64gFBDKXfEoVekH4bNPKY2m1S86p [3s]
-Production: https://markuce-ap55btywc-zanni098s-projects.vercel.app [3s]
-https://markuce-ap55btywc-zanni098s-projects.vercel.appBuilding...
+Uploading [--------------------] (0.0B/114.7KB)
+Uploading [=====---------------] (31.4KB/114.7KB)
+Uploading [==========----------] (59.1KB/114.7KB)
+Uploading [===============-----] (86.8KB/114.7KB)
+Uploading [====================] (114.7KB/114.7KB)
+Inspect: https://vercel.com/zanni098s-projects/markuce-web/8Lgw4sjM9Zf4ioKC6yBWhgHZARXj [5s]
+Production: https://markuce-1e3q008wa-zanni098s-projects.vercel.app [5s]
+https://markuce-1e3q008wa-zanni098s-projects.vercel.appBuilding...
 Building: Running build in Washington, D.C., USA (East) – iad1
 Building: Build machine configuration: 2 cores, 8 GB
 Building: Build machine configuration: 2 cores, 8 GB
 Building: Retrieving list of deployment files...
-Building: Downloading 17 deployment files...
-Building: Restored build cache from previous deployment (DrufQq1LvCNesWwJy1e41KPM2G6v)
+Building: Downloading 18 deployment files...
+Building: Restored build cache from previous deployment (64gFBDKXfEoVekH4bNPKY2m1S86p)
 Building: Running "vercel build"
 Building: Vercel CLI 54.12.2
 Building: Running "install" command: `npm install`...
@@ -38,24 +39,24 @@ Building: ✓ Generating static pages (8/8)
 Building: Finalizing page optimization ...
 Building: Collecting build traces ...
 Building: Route (app)                              Size     First Load JS
-Building: ┌ ○ /                                    10.6 kB         105 kB
-Building: ├ ○ /_not-found                          871 B            88 kB
-Building: ├ ○ /about                               3.76 kB        98.2 kB
+Building: ┌ ○ /                                    9.36 kB         104 kB
+Building: ├ ○ /_not-found                          871 B          87.9 kB
+Building: ├ ○ /about                               3.73 kB        98.1 kB
 Building: ├ ○ /developers                          3.89 kB        98.3 kB
 Building: ├ ○ /how-it-works                        3.95 kB        98.4 kB
-Building: └ ○ /pricing                             3.35 kB        97.8 kB
+Building: └ ○ /pricing                             3.31 kB        97.7 kB
 Building: + First Load JS shared by all            87.1 kB
 Building: ├ chunks/23-192786cc522ff36a.js        31.5 kB
 Building: ├ chunks/fd9d1056-211f0c774853bd6b.js  53.6 kB
-Building: └ other shared chunks (total)          1.93 kB
+Building: └ other shared chunks (total)          1.9 kB
 Building: ○  (Static)  prerendered as static content
-Building: Traced Next.js server files in: 36.821ms
-Building: Created all serverless functions in: 93.49ms
-Building: Collected static files (public/, static/, .next/static): 24.966ms
-Building: Build Completed in /vercel/output [24s]
+Building: Traced Next.js server files in: 36.05ms
+Building: Created all serverless functions in: 84.393ms
+Building: Collected static files (public/, static/, .next/static): 7.189ms
+Building: Build Completed in /vercel/output [26s]
 Building: Deploying outputs...
 Building: Deployment completed
 Building: Creating build cache...
-[2K[1A[2K[GProduction: https://markuce-ap55btywc-zanni098s-projects.vercel.app [1m]
+[2K[1A[2K[GProduction: https://markuce-1e3q008wa-zanni098s-projects.vercel.app [1m]
 Completing...
 Aliased: https://markuce-web.vercel.app [1m]

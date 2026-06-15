@@ -326,7 +326,7 @@ export default function Home() {
         <div className="orb orb-accent" style={{ width: 360, height: 360, bottom: -120, left: -80 }} />
 
         <div className="container-site" style={{ position: 'relative', zIndex: 2, width: '100%' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: 64, alignItems: 'center' }} className="lg:grid-cols-[1.1fr_340px]">
+          <div className="grid grid-cols-1 items-center lg:grid-cols-[1.1fr_360px]" style={{ gap: 56 }}>
             <div>
               <div style={{ marginBottom: 26 }}>
                 <span className="badge badge-primary">
@@ -383,7 +383,7 @@ export default function Home() {
       {/* ── STATS ──────────────────────────────────────────── */}
       <section className="section-sm" style={{ background: 'var(--bg)' }}>
         <div className="container-site">
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)' }} className="md:grid-cols-4">
+          <div className="grid grid-cols-2 md:grid-cols-4">
             {[
               { node: <AnimatedCounter to={150} suffix="+" />,            label: 'Countries supported', sub: 'vs 46 on Stripe' },
               { node: <AnimatedCounter to={3.4} suffix="%" decimals={1} />, label: 'Flat transaction fee', sub: 'No hidden charges' },
